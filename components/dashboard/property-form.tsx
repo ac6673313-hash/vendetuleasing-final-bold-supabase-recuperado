@@ -278,7 +278,7 @@ export function PropertyForm({
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="property_type">Tipo de Propiedad *</Label>
+                <Label htmlFor="property_type">Property Type *</Label>
                 <Select
                   value={formData.property_type}
                   onValueChange={(value: PropertyType) =>
@@ -286,18 +286,17 @@ export function PropertyForm({
                   }
                 >
                   <SelectTrigger id="property_type">
-                    <SelectValue />
+                    <SelectValue placeholder="Select property type" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="casa">Casa</SelectItem>
-                    <SelectItem value="apartamento">Apartamento</SelectItem>
-                    <SelectItem value="terreno">Terreno</SelectItem>
-                    <SelectItem value="finca">Finca</SelectItem>
-                    <SelectItem value="lote">Lote</SelectItem>
-                    <SelectItem value="local_comercial">Local Comercial</SelectItem>
-                    <SelectItem value="oficina">Oficina</SelectItem>
-                    <SelectItem value="bodega">Bodega</SelectItem>
-                    <SelectItem value="otro">Otro</SelectItem>
+                    <SelectItem value="house">House</SelectItem>
+                    <SelectItem value="apartment">Apartment</SelectItem>
+                    <SelectItem value="studio">Studio</SelectItem>
+                    <SelectItem value="local">Commercial Local</SelectItem>
+                    <SelectItem value="warehouse">Warehouse</SelectItem>
+                    <SelectItem value="office">Office</SelectItem>
+                    <SelectItem value="building">Building</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -527,8 +526,8 @@ export function PropertyForm({
               {isSubmitting
                 ? "Guardando..."
                 : propertyId
-                ? "Actualizar Propiedad"
-                : "Publicar Propiedad"}
+                  ? "Actualizar Propiedad"
+                  : "Publicar Propiedad"}
             </Button>
           </div>
           <div>
