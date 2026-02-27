@@ -1,7 +1,5 @@
 "use client"
 
-import React from "react"
-
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 
@@ -14,6 +12,7 @@ export function NavbarWrapper({ children }: NavbarWrapperProps) {
   const pathname = usePathname()
 
   const isLandingPage = pathname === "/"
+  const isTransparent = isLandingPage && !isScrolled
 
   useEffect(() => {
     if (!isLandingPage) return
@@ -26,14 +25,9 @@ export function NavbarWrapper({ children }: NavbarWrapperProps) {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [isLandingPage])
 
-  const childrenWithProps = React.Children.map(children, (child) => {
-    if (React.isValidElement(child)) {
-      return React.cloneElement(child as React.ReactElement<any>, {
-        isTransparent: isLandingPage && !isScrolled,
-      })
-    }
-    return child
-  })
-
-  return <>{childrenWithProps}</>
+  return (
+    <div data-transparent={isTransparent ? "true" : "false"} className="contents">
+      {children}
+    </div>
+  )
 }
