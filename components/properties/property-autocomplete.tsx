@@ -25,7 +25,7 @@ interface PropertyAutocompleteProps {
 export function PropertyAutocomplete({
   onSearch,
   placeholder = "Buscar por dirección, ciudad...",
-  status = "for_sale",
+  status = "active",
 }: PropertyAutocompleteProps) {
   const [searchQuery, setSearchQuery] = useState("")
   const [suggestions, setSuggestions] = useState<Property[]>([])

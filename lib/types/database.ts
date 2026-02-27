@@ -1,17 +1,17 @@
 export type UserRole = "user" | "premium" | "admin"
 
 export type PropertyType =
-  | "house"
-  | "apartment"
-  | "office"
-  | "villa"
-  | "townhome"
-  | "bungalow"
-  | "condo"
-  | "land"
-  | "commercial"
+  | "casa"
+  | "apartamento"
+  | "terreno"
+  | "finca"
+  | "lote"
+  | "local_comercial"
+  | "oficina"
+  | "bodega"
+  | "otro"
 
-export type PropertyStatus = "for_sale" | "for_rent" | "sold" | "rented"
+export type PropertyStatus = "active" | "inactive" | "sold" | "rented" | "reserved" | "archived"
 
 export type PublicationStatus = "pending_payment" | "published" | "expired" | "rejected"
 

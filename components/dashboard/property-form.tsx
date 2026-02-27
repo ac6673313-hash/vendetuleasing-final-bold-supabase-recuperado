@@ -78,8 +78,8 @@ export function PropertyForm({
   const [formData, setFormData] = useState({
     title: initialData?.title || "",
     description: initialData?.description || "",
-    property_type: initialData?.property_type || ("house" as PropertyType),
-    status: initialData?.status || ("for_sale" as PropertyStatus),
+    property_type: initialData?.property_type || ("casa" as PropertyType),
+    status: initialData?.status || ("active" as PropertyStatus),
     price: initialData?.price || 0,
     bedrooms: initialData?.bedrooms || 1,
     bathrooms: initialData?.bathrooms || 1,
@@ -289,14 +289,15 @@ export function PropertyForm({
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="house">Casa</SelectItem>
-                    <SelectItem value="apartment">Apartamento</SelectItem>
-                    <SelectItem value="studio">Apartaestudio</SelectItem>
-                    <SelectItem value="local">Local</SelectItem>
-                    <SelectItem value="warehouse">Bodega</SelectItem>
-                    <SelectItem value="office">Oficina</SelectItem>
-                    <SelectItem value="building">Edificio</SelectItem>
-                    <SelectItem value="other">Otros</SelectItem>
+                    <SelectItem value="casa">Casa</SelectItem>
+                    <SelectItem value="apartamento">Apartamento</SelectItem>
+                    <SelectItem value="terreno">Terreno</SelectItem>
+                    <SelectItem value="finca">Finca</SelectItem>
+                    <SelectItem value="lote">Lote</SelectItem>
+                    <SelectItem value="local_comercial">Local Comercial</SelectItem>
+                    <SelectItem value="oficina">Oficina</SelectItem>
+                    <SelectItem value="bodega">Bodega</SelectItem>
+                    <SelectItem value="otro">Otro</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -313,8 +314,12 @@ export function PropertyForm({
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="for_sale">En Venta</SelectItem>
+                    <SelectItem value="active">En Venta</SelectItem>
                     <SelectItem value="sold">Vendida</SelectItem>
+                    <SelectItem value="rented">Arrendada</SelectItem>
+                    <SelectItem value="reserved">Reservada</SelectItem>
+                    <SelectItem value="inactive">Inactiva</SelectItem>
+                    <SelectItem value="archived">Archivada</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

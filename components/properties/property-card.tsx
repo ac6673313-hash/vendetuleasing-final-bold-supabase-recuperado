@@ -23,11 +23,13 @@ export function PropertyCard({ property }: PropertyCardProps) {
   const images = property.property_images || []
   const imageUrl = images.length > 0 ? images[currentImageIndex]?.image_url : null
 
-  const statusLabels = {
-    for_sale: "En Venta",
-    for_rent: "En Renta",
+  const statusLabels: Record<string, string> = {
+    active: "En Venta",
+    inactive: "Inactiva",
     sold: "Vendida",
-    rented: "Rentada",
+    rented: "Arrendada",
+    reserved: "Reservada",
+    archived: "Archivada",
   }
 
   const formatPrice = (price: number) => {
@@ -100,7 +102,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
           <div className="mb-2">
             <p className="text-2xl font-bold text-accent">
               {formatPrice(property.price)}
-              {property.status === "for_rent" && (
+              {property.status === "rented" && (
                 <span className="text-sm font-normal text-muted-foreground">/mes</span>
               )}
             </p>

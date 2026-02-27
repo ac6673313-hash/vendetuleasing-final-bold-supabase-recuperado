@@ -9,7 +9,7 @@ import Image from "next/image"
 import { PropertyAutocomplete } from "@/components/properties/property-autocomplete"
 
 export function   HeroSection() {
-  const [searchType, setSearchType] = useState("for_sale")
+  const [searchType, setSearchType] = useState("active")
   const router = useRouter()
 
   const handleSearch = (query: string) => {
@@ -53,7 +53,7 @@ export function   HeroSection() {
             <Tabs value={searchType} onValueChange={setSearchType} className="mb-4">
               <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto bg-white/10 backdrop-blur-sm">
                 <TabsTrigger
-                  value="for_sale"
+                  value="active"
                   className="data-[state=active]:bg-[#ff8414] data-[state=active]:text-white text-white/80"
                 >
                   Comprar

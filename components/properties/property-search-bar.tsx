@@ -11,7 +11,7 @@ interface PropertySearchBarProps {
   initialStatus?: string
 }
 
-export function PropertySearchBar({ initialQuery = "", initialStatus = "for_sale" }: PropertySearchBarProps) {
+export function PropertySearchBar({ initialQuery = "", initialStatus = "active" }: PropertySearchBarProps) {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [searchStatus, setSearchStatus] = useState(initialStatus)
@@ -46,7 +46,7 @@ export function PropertySearchBar({ initialQuery = "", initialStatus = "for_sale
     <div className="w-full space-y-4">
       <Tabs value={searchStatus} onValueChange={setSearchStatus} className="w-full">
         <TabsList className="grid w-full grid-cols-2 max-w-md bg-muted">
-          <TabsTrigger value="for_sale" className="data-[state=active]:bg-accent data-[state=active]:text-white">
+          <TabsTrigger value="active" className="data-[state=active]:bg-accent data-[state=active]:text-white">
             Comprar
           </TabsTrigger>
           <TabsTrigger value="sold" className="data-[state=active]:bg-accent data-[state=active]:text-white">
