@@ -1,10 +1,11 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import type { User } from "@supabase/supabase-js"
 import { MobileNav } from "./mobile-nav"
+import { useNavTransparent } from "@/hooks/use-nav-transparent"
 
 interface NavbarClientProps {
   user: User | null
@@ -12,16 +13,17 @@ interface NavbarClientProps {
     full_name?: string
     avatar_url?: string
   } | null
-  isTransparent?: boolean
 }
 
-export function NavbarClient({ user, profile, isTransparent = false }: NavbarClientProps) {
+export function NavbarClient({ user, profile }: NavbarClientProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+  const isTransparent = useNavTransparent(ref)
 
   return (
     <>
       {/* Mobile menu button */}
-      <div className="flex md:hidden">
+      <div ref={ref} className="flex md:hidden">
         <Button
           variant="ghost"
           size="icon"

@@ -26,8 +26,15 @@ export function NavbarWrapper({ children }: NavbarWrapperProps) {
   }, [isLandingPage])
 
   return (
-    <div data-transparent={isTransparent ? "true" : "false"} className="contents">
+    <nav
+      className={`fixed top-0 z-50 w-full border-b transition-all duration-300 ${
+        isTransparent
+          ? "bg-transparent/60 backdrop-blur border-white/10"
+          : "bg-background/95 backdrop-blur border-border supports-[backdrop-filter]:bg-background/60"
+      }`}
+      data-transparent={isTransparent}
+    >
       {children}
-    </div>
+    </nav>
   )
 }
